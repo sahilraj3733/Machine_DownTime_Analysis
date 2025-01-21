@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Downtime Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Machine Downtime Prediction</h1>
+
+        <!-- Upload Dataset -->
+        <div>
+            <h2>Upload Dataset</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="fileInput" name="file" required>
+                <button type="submit">Upload</button>
+            </form>
+            <p id="uploadStatus"></p>
+        </div>
+        <div>
+            <h2>Train Model</h2>
+            <button id="trainButton">Train Model</button>
+            <p id="trainStatus"></p>
+        </div>
+    
+        <!-- Displaying Model Performance -->
+        <h2>Model Performance</h2>
+        <div id="performance">
+            <p>Accuracy: <span id="accuracy">-</span></p>
+            <p>F1-Score: <span id="f1Score">-</span></p>
+        </div>
+
+        <div>
+            <h2>Make a Prediction</h2>
+            <form id="predictForm">
+                <label for="jsonInput">Enter JSON Data (with feature names):</label><br>
+                <textarea id="jsonInput" name="jsonInput" rows="10" cols="50" required placeholder='{"Hydraulic_Pressure(bar)": 120.5, "Coolant_Pressure(bar)": 20.3, "Air_System_Pressure(bar)": 15.8, "Coolant_Temperature": 70.0, "Hydraulic_Oil_Temperature(?C)": 60.2, "Spindle_Bearing_Temperature(?C)": 40.1, "Spindle_Vibration(?m)": 0.005, "Tool_Vibration(?m)": 0.008, "Spindle_Speed(RPM)": 1500, "Voltage(volts)": 380.0, "Torque(Nm)": 25.5, "Cutting(kN)": 15.6}'></textarea><br>
+                
+                <button type="submit">Predict</button>
+            </form>
+            <p id="predictionResult"></p>
+        </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
